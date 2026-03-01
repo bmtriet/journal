@@ -38,3 +38,14 @@ Workflow `.github/workflows/pages.yml` sẽ:
 1. Cài dependencies
 2. Build Astro (`dist/`)
 3. Deploy artifact lên GitHub Pages
+
+
+## Troubleshooting GitHub Pages (nếu thấy log Jekyll)
+Nếu Actions log của Pages hiển thị `jekyll v3.x` và build từ `/github/workspace/.`, repo của bạn vẫn đang chạy mode **Deploy from branch** thay vì **GitHub Actions**.
+
+Cách sửa:
+1. Vào **Settings → Pages**
+2. Ở mục **Source**, chọn **GitHub Actions**
+3. Re-run workflow `Deploy Astro site to GitHub Pages`
+
+Workflow hiện tại cũng đã thêm bước tạo `dist/.nojekyll` để đảm bảo artifact Astro không bị Jekyll xử lý lại.
