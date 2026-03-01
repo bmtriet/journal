@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Daily — journal</title>
+    <meta name="description" content="Các bài chia sẻ công việc lập trình với AI hằng ngày." />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                500: '#6366f1',
+                600: '#4f46e5'
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <script defer src="../assets/js/main.js"></script>
+  </head>
+  <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+    <header class="sticky top-0 z-10 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
+      <div class="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
+        <a href="../index.html" class="text-base font-semibold">journal</a>
+        <nav class="hidden items-center gap-4 text-sm md:flex">
+          <a href="../index.html" class="hover:text-accent-500">Home</a>
+          <a href="ai-daily.html" class="text-accent-600">AI Daily</a>
+          <a href="vision.html" class="hover:text-accent-500">Vision</a>
+          <a href="life.html" class="hover:text-accent-500">Life</a>
+          <a href="../about.html" class="hover:text-accent-500">About</a>
+          <button data-theme-toggle class="h-11 rounded-lg border border-slate-300 px-3 dark:border-slate-700">Theme</button>
+        </nav>
+        <button data-mobile-toggle class="h-11 rounded-lg border border-slate-300 px-3 text-sm md:hidden dark:border-slate-700">Menu</button>
+      </div>
+      <div data-mobile-menu class="hidden border-t border-slate-200 px-4 py-3 md:hidden dark:border-slate-800">
+        <div class="mx-auto flex max-w-2xl flex-col gap-3 text-sm">
+          <a href="../index.html">Home</a>
+          <a href="ai-daily.html">AI Daily</a>
+          <a href="vision.html">Vision</a>
+          <a href="life.html">Life</a>
+          <a href="../about.html">About</a>
+          <button data-theme-toggle class="h-11 rounded-lg border border-slate-300 px-3 text-left dark:border-slate-700">Toggle theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-2xl px-4 py-12">
+      <p class="text-sm text-slate-500"><a href="../index.html">Home</a> / AI Daily</p>
+      <h1 class="mt-4 text-3xl font-bold">AI Daily</h1>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Workflow, prompt, tooling và cách ship nhanh hơn cùng AI.</p>
+      <div class="mt-8 space-y-3">
+        <a href="../posts/2026-02-main-deploy-update.html" class="block rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <p class="text-xs text-slate-500">2026-02-27 • 3 phút đọc</p>
+          <p class="mt-1 font-medium">Chuyển qua nhánh main để deploy GitHub Pages ổn định</p>
+        </a>
+        <a href="../posts/2026-02-synology-chat-clone-80.html" class="block rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <p class="text-xs text-slate-500">2026-02-25 • 2 phút đọc</p>
+          <p class="mt-1 font-medium">Tôi vừa clone lại 80% chức năng của Synology Chat</p>
+        </a>
+        <a href="../posts/2026-01-hello-ai.html" class="block rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <p class="text-xs text-slate-500">2026-01-05 • 6 phút đọc</p>
+          <p class="mt-1 font-medium">Một ngày làm việc với AI: từ ý tưởng đến PR</p>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
