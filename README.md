@@ -47,3 +47,13 @@ git add .
 git commit -m "feat(post): add new journal post"
 git push origin main
 ```
+
+## Hướng đi đề xuất (đỡ sửa tay template/nav)
+Nếu muốn chỉ tập trung viết nội dung rồi push, nên migrate sang **Astro + Content Collections**:
+- Mỗi bài là 1 file trong `src/content/posts/` (Markdown hoặc JSON).
+- Template, menu, danh mục, danh sách bài mới render tự động theo dữ liệu.
+- GitHub Actions build + deploy, không cần sửa `index.html`/`categories/*.html` thủ công sau mỗi bài.
+
+Gợi ý mô hình dữ liệu:
+- **Markdown + frontmatter** cho nội dung bài.
+- **JSON** cho metadata nâng cao (series, featured, related, custom fields).
