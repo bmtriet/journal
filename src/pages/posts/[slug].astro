@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { CATEGORY_TO_SLUG, getAllPosts, getPostMeta } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const slug = Astro.params.slug!;
+const posts = await getAllPosts();
+const post = posts.find((item) => item.slug === slug);
+if (!post) throw new Error(`Post not found: ${slug}`);
+
+const { Content } = await render(post);
+const currentIndex = posts.findIndex((p) => p.slug === post.slug);
+const newer = posts[currentIndex - 1];
+const older = posts[currentIndex + 1];
+const categorySlug = CATEGORY_TO_SLUG[post.data.category];
+const meta = getPostMeta(post.data.metaFile);
+---
+<BaseLayout title={`${post.data.title} — journal`} description={post.data.description} active={categorySlug as any}>
+  <p class="meta"><a href="/journal/">Home</a> / <a href={`/journal/categories/${categorySlug}/`}>{post.data.category}</a> / Bài viết</p>
+  <h1>{post.data.title}</h1>
+  <p class="meta">{post.data.date.toISOString().slice(0, 10)} · {post.data.readingTime}</p>
+
+  <article class="prose">
+    <Content />
+  </article>
+
+  {meta && (
+    <section class="card">
+      <div class="meta">Metadata nâng cao (JSON)</div>
+      <pre style="white-space: pre-wrap; margin: .5rem 0 0;">{JSON.stringify(meta, null, 2)}</pre>
+    </section>
+  )}
+
+  <nav class="card">
+    <strong>Điều hướng nhanh</strong>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem;">
+      <a href="/journal/">Trang chủ</a>
+      <a href={`/journal/categories/${categorySlug}/`}>Danh mục {post.data.category}</a>
+      {older && <a href={`/journal/posts/${older.slug}/`}>Bài trước</a>}
+      {newer && <a href={`/journal/posts/${newer.slug}/`}>Bài tiếp</a>}
+    </div>
+  </nav>
+</BaseLayout>

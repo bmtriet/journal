@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  active?: 'home' | 'ai-daily' | 'vision' | 'life' | 'about';
+}
+
+const { title, description = 'Journal tối giản', active } = Astro.props;
+---
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a href="/journal/" style="font-weight:700;">journal</a>
+        <nav class="nav-links">
+          <a href="/journal/" class={active === 'home' ? 'active' : ''}>Home</a>
+          <a href="/journal/categories/ai-daily/" class={active === 'ai-daily' ? 'active' : ''}>AI Daily</a>
+          <a href="/journal/categories/vision/" class={active === 'vision' ? 'active' : ''}>Vision</a>
+          <a href="/journal/categories/life/" class={active === 'life' ? 'active' : ''}>Life</a>
+          <a href="/journal/about/" class={active === 'about' ? 'active' : ''}>About</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer>
+      <div class="wrap">© 2026 journal</div>
+    </footer>
+  </body>
+</html>
