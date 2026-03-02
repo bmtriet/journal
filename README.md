@@ -49,3 +49,11 @@ Cách sửa:
 3. Re-run workflow `Deploy Astro site to GitHub Pages`
 
 Workflow hiện tại cũng đã thêm bước tạo `dist/.nojekyll` để đảm bảo artifact Astro không bị Jekyll xử lý lại.
+
+## Theme
+Bạn **không dùng Jekyll theme** trong kiến trúc Astro này. Thay vào đó, theme được xử lý ở UI:
+- Theme picker ở header (Indigo / Emerald / Rose)
+- Lưu lựa chọn vào `localStorage`
+- Tự áp màu phù hợp cho light/dark mode
+
+=> Không cần config `jekyll-theme-*` để đổi giao diện.
