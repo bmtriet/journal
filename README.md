@@ -57,3 +57,6 @@ Bạn **không dùng Jekyll theme** trong kiến trúc Astro này. Thay vào đ�
 - Tự áp màu phù hợp cho light/dark mode
 
 => Không cần config `jekyll-theme-*` để đổi giao diện.
+
+
+Lockfile: repo dùng `package-lock.json` (npm) để CI detect package manager ổn định trên GitHub Actions.

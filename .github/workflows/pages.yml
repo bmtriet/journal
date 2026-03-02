@@ -25,27 +25,18 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Force npm registry (avoid npmmirror/proxy issues)
-        run: |
-          npm config set registry https://registry.npmjs.org/
-          npm config delete http-proxy || true
-          npm config delete https-proxy || true
-          npm config get registry
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - name: Debug npm config
-        run: |
-          echo "=== npm registry ==="
-          npm config get registry
-          echo "=== npm config list ==="
-          npm config list
-          echo "=== env registry ==="
-          env | grep -i npm || true
+
+      - name: Use npmjs registry
+        run: npm config set registry https://registry.npmjs.org/
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build Astro site
         run: npm run build
