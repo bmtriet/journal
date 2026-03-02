@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CATEGORY_TO_SLUG, getAllPosts } from '../lib/content';
+
+const posts = await getAllPosts();
+---
+<BaseLayout title="Journal — AI, Tầm nhìn, Cuộc sống" description="Blog cá nhân tối giản" active="home">
+  <p class="meta">Minimal • Mobile-first • Astro Content Collections</p>
+  <h1>Viết nội dung và push, phần còn lại để framework lo.</h1>
+  <p class="prose">Đây là phiên bản refactor theo hướng Astro + Content Collections. Mỗi bài chỉ cần thêm file content, danh sách bài mới và trang danh mục sẽ cập nhật tự động.</p>
+
+  <h2>Bài mới</h2>
+  {posts.map((post) => (
+    <a class="card" href={`/journal/posts/${post.slug}/`}>
+      <div class="meta">{post.data.category} • {post.data.date.toISOString().slice(0, 10)}</div>
+      <div>{post.data.title}</div>
+    </a>
+  ))}
+
+  <h2>Danh mục</h2>
+  {Object.entries(CATEGORY_TO_SLUG).map(([name, slug]) => (
+    <a class="card" href={`/journal/categories/${slug}/`}>
+      <strong>{name}</strong>
+    </a>
+  ))}
+</BaseLayout>
