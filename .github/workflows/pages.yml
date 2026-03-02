@@ -25,7 +25,12 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
+      - name: Force npm registry (avoid npmmirror/proxy issues)
+        run: |
+          npm config set registry https://registry.npmjs.org/
+          npm config delete http-proxy || true
+          npm config delete https-proxy || true
+          npm config get registry
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
