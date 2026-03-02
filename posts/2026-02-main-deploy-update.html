@@ -3,10 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ghi chú sống chậm trong nhịp làm sản phẩm nhanh</title>
+    <title>Chuyển qua nhánh main để deploy GitHub Pages ổn định</title>
+    <meta name="description" content="Chốt workflow publish blog: dùng nhánh main để GitHub Pages tự deploy nhanh và ổn định hơn." />
+    <meta name="date" content="2026-02-27" />
+    <meta name="category" content="AI Daily" />
+    <meta name="reading-time" content="3 phút" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { accent: { 500: '#6366f1', 600: '#4f46e5' } } } } };</script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: { extend: { colors: { accent: { 500: '#6366f1', 600: '#4f46e5' } } } }
+      };
+    </script>
     <script defer src="../assets/js/main.js"></script>
   </head>
   <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
@@ -15,9 +24,9 @@
         <a href="../index.html" class="text-base font-semibold">journal</a>
         <nav class="hidden items-center gap-4 text-sm md:flex">
           <a href="../index.html" class="hover:text-accent-500">Home</a>
-          <a href="../categories/ai-daily.html" class="hover:text-accent-500">AI Daily</a>
+          <a href="../categories/ai-daily.html" class="text-accent-600">AI Daily</a>
           <a href="../categories/vision.html" class="hover:text-accent-500">Vision</a>
-          <a href="../categories/life.html" class="text-accent-600">Life</a>
+          <a href="../categories/life.html" class="hover:text-accent-500">Life</a>
           <a href="../about.html" class="hover:text-accent-500">About</a>
           <button data-theme-toggle class="h-11 rounded-lg border border-slate-300 px-3 dark:border-slate-700">Theme</button>
         </nav>
@@ -32,26 +41,21 @@
     </header>
 
     <article class="prose-blog mx-auto max-w-2xl px-4 py-12">
-      <p class="text-sm text-slate-500"><a href="../index.html">Home</a> / <a href="../categories/life.html">Life</a> / Bài viết</p>
-      <h1 class="mt-4 text-3xl font-bold">Ghi chú sống chậm trong nhịp làm sản phẩm nhanh</h1>
-      <p class="text-sm text-slate-500">18/01/2026 · Life · 5 phút đọc</p>
+      <p class="text-sm text-slate-500"><a href="../index.html">Home</a> / <a href="../categories/ai-daily.html">AI Daily</a> / Bài viết</p>
+      <h1 class="mt-4 text-3xl font-bold">Chuyển qua nhánh main để deploy GitHub Pages ổn định</h1>
+      <p class="text-sm text-slate-500">27/02/2026 · AI Daily · 3 phút đọc</p>
 
-      <p>Làm sản phẩm thường đi kèm nhịp độ cao, deadline dày, context switch liên tục. Mình học cách “chậm lại có chủ đích” để giữ đầu óc rõ ràng.</p>
-      <h2>3 thói quen nhỏ giữ năng lượng</h2>
-      <ul>
-        <li>Bắt đầu ngày bằng 30 phút deep work không họp.</li>
-        <li>Chỉ chọn 3 việc quan trọng nhất trong ngày.</li>
-        <li>Đi bộ 15 phút sau giờ làm để reset não.</li>
-      </ul>
-      <p>Sống chậm không phải làm ít đi, mà là giữ nhịp đều để đi xa hơn.</p>
+      <p>Mình chốt lại flow publish blog: toàn bộ bài mới sẽ đi qua nhánh <strong>main</strong> để GitHub Pages deploy tự động ổn định hơn.</p>
+      <p>Lý do đơn giản: workflow đang trigger theo push vào <code>main</code>, nên chỉ cần pull code mới, viết bài bằng IDE, commit rồi push là bài sẽ lên site.</p>
+      <p>Mục tiêu to lớn hơn :D viết đều mỗi tuần, giữ nhịp chia sẻ về AI, tầm nhìn và cuộc sống mà không bị vướng phần vận hành.</p>
 
       <nav class="mt-10 rounded-xl border border-slate-200 p-4 text-sm dark:border-slate-800">
         <p class="mb-3 font-medium">Điều hướng nhanh</p>
         <div class="flex flex-wrap gap-2">
           <a class="rounded-lg border border-slate-300 px-3 py-2 dark:border-slate-700" href="../index.html">Trang chủ</a>
-          <a class="rounded-lg border border-slate-300 px-3 py-2 dark:border-slate-700" href="../categories/life.html">Danh mục Life</a>
-          <a class="rounded-lg border border-slate-300 px-3 py-2 dark:border-slate-700" href="2026-01-career-vision.html">Bài trước</a>
-          <a class="rounded-lg border border-slate-300 px-3 py-2 dark:border-slate-700" href="2026-02-synology-chat-clone-80.html">Bài tiếp</a>
+          <a class="rounded-lg border border-slate-300 px-3 py-2 dark:border-slate-700" href="../categories/ai-daily.html">Danh mục AI Daily</a>
+          <a class="rounded-lg border border-slate-300 px-3 py-2 dark:border-slate-700" href="2026-02-synology-chat-clone-80.html">Bài trước</a>
+          <a class="rounded-lg border border-slate-300 px-3 py-2 opacity-60 dark:border-slate-700" href="2026-03-ai-paid-services.html">Bài tiếp</a>
         </div>
       </nav>
     </article>
