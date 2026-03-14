@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CATEGORY_TO_SLUG, SLUG_TO_CATEGORY, getAllPosts } from '../../lib/content';
+
+export async function getStaticPaths() {
+  return Object.values(CATEGORY_TO_SLUG).map((slug) => ({ params: { category: slug } }));
+}
+
+const categorySlug = Astro.params.category!;
+const categoryName = SLUG_TO_CATEGORY[categorySlug];
+if (!categoryName) throw new Error('Unknown category');
+const posts = (await getAllPosts()).filter((p) => p.data.category === categoryName);
+---
+<BaseLayout title={`${categoryName} — journal`} active={categorySlug as any}>
+  <p class="meta"><a href="/journal/">Home</a> / {categoryName}</p>
+  <h1>{categoryName}</h1>
+  {posts.map((post) => (
+    <a class="card" href={`/journal/posts/${post.slug}/`}>
+      <div class="meta">{post.data.date.toISOString().slice(0, 10)} • {post.data.readingTime}</div>
+      <div>{post.data.title}</div>
+    </a>
+  ))}
+</BaseLayout>
